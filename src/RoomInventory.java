@@ -1,21 +1,23 @@
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Use Case 3: Centralized Room Inventory Management
- */
 public class RoomInventory {
-    private Map<String, Integer> inventory;
+    private Map<String, Integer> roomAvailability;
 
     public RoomInventory() {
-        inventory = new HashMap<>();
-        // Initializing with predefined counts
-        inventory.put("Single", 5);
-        inventory.put("Double", 3);
-        inventory.put("Suite", 2);
+        roomAvailability = new HashMap<>();
+        roomAvailability.put("Single", 5);
+        roomAvailability.put("Double", 3);
+        roomAvailability.put("Suite", 2);
     }
 
+    // Needed for UC4 (Returns the whole map)
+    public Map<String, Integer> getRoomAvailability() {
+        return roomAvailability;
+    }
+
+    // Needed for UC3 (Returns count for one room type)
     public int getAvailability(String roomType) {
-        return inventory.getOrDefault(roomType, 0);
+        return roomAvailability.getOrDefault(roomType, 0);
     }
 }
