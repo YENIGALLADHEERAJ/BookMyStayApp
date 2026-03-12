@@ -30,6 +30,14 @@ public class RoomInventory {
         int current = getAvailability(roomType);
         roomAvailability.put(roomType, current + 1);
     }
+    /**
+     * Updates the availability count for a specific room type.
+     * Used during System Recovery (UC12).
+     */
+    public void updateAvailability(String roomType, int count) {
+        // This updates the HashMap with the value from the file
+        roomAvailability.put(roomType, count);
+    }
 
     // Needed for UC6 to reduce count
     public void decrementAvailability(String roomType) {
