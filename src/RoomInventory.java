@@ -26,6 +26,11 @@ public class RoomInventory {
         return roomAvailability.getOrDefault(roomType, 0);
     }
 
+    public void incrementAvailability(String roomType) {
+        int current = getAvailability(roomType);
+        roomAvailability.put(roomType, current + 1);
+    }
+
     // Needed for UC6 to reduce count
     public void decrementAvailability(String roomType) {
         int current = roomAvailability.getOrDefault(roomType, 0);
